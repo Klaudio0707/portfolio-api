@@ -1,0 +1,25 @@
+# O Spring Boot usa este arquivo para ler as configurações de infraestrutura da aplicação.
+spring:
+  application:
+    name: portfolio-api
+
+  # Configuração do HikariCP (Pool de conexões padrão do Spring) para o PostgreSQL
+  datasource:
+    url: jdbc:postgresql://localhost:5432/portfolio_db
+    username: postgres
+    password: sua_senha_aqui
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      # POR QUE 'update'?: Em ambiente de desenvolvimento, o Hibernate lê as suas classes @Entity
+      # e altera as tabelas do banco de dados automaticamente para refletir o código.
+      # Nota Sênior: Em produção, usamos 'validate' e ferramentas como Flyway/Liquibase para gerenciar o banco.
+      ddl-auto: update
+
+    # Exibe no console do IntelliJ as queries SQL reais que o Java está executando por baixo dos panos.
+    # Excelente para aprendizado e para debugar lentidão.
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true # Formata o SQL no console para não ficar em uma única linha ilegível.
