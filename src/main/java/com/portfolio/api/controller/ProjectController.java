@@ -10,6 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/projects")
 public class ProjectController {
+
     private final ProjectRepository repository;
 
     public ProjectController(ProjectRepository repository) {
